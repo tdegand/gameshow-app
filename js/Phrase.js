@@ -29,7 +29,7 @@ class phrase {
                 newListItem.className = 'space'
                 phraseContainer.appendChild(newListItem);
             }
-        })
+        });
 
 
     }
@@ -41,12 +41,12 @@ class phrase {
     /**
      * If the user input matches the letter that is hidden. Set it to show
      */
-    chowMatchedLetter() {
+    showMatchedLetter() {
         const phraseContainer = document.getElementById('phrase ul');
         phraseContainer.children.forEach(letter => {
             if (this.letter.className === 'hide') {
                 this.letter.className = 'show';
             }
-        })
+        });
     }
 }

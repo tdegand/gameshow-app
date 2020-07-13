@@ -3,18 +3,20 @@
 *  @phrase is a class that uses a constructor to create a class with properties
 * */
 
-class phrase {
+class Phrase {
     constructor(phrase) {
-        this.phrase = phrase.toLowerCase(phrase);
+        this.phrase = phrase.toLowerCase(phrase)
     }
+    /**
+    * Display phrase on game board
+    */
     addPhraseToDisplay() {
-        const phraseContainer = document.getElementById('phrase ul');
-        phraseContainer.className = "phrase";
+        const phraseContainer = document.querySelector('#phrase ul');
+        phraseContainer.className = 'phrase';
 
         //split the phrase into indivudiual letters
         const letters = this.phrase.split('');
         const regex = new RegExp(/[a-z]/);
-        const newListItem = document.createElement('li');
 
         /** compare the letters to the RegEx
             if those letters match then add classname of letter
@@ -22,31 +24,16 @@ class phrase {
             append each new element     
         */
         letters.forEach(letter => {
-            if (regex.test(letters)) {
+            if (regex.test(letter)) {
+                const newListItem = document.createElement('li');
                 newListItem.className = 'letter'
+                newListItem.innerHTML = `${letter}`;
                 phraseContainer.appendChild(newListItem);
             } else {
+                const newListItem = document.createElement('li');
                 newListItem.className = 'space'
                 phraseContainer.appendChild(newListItem);
             }
         });
-
-
-    }
-    //Evaluate whether user inputs matches the letter or not
-    checkLetter(letter) {
-        this.phrase.includes(letter) ? true : false;
-    }
-
-    /**
-     * If the user input matches the letter that is hidden. Set it to show
-     */
-    showMatchedLetter() {
-        const phraseContainer = document.getElementById('phrase ul');
-        phraseContainer.children.forEach(letter => {
-            if (this.letter.className === 'hide') {
-                this.letter.className = 'show';
-            }
-        });
-    }
+    };
 }

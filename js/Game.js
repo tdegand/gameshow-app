@@ -2,108 +2,41 @@
  * Project 4 - OOP Game App
  * Game.js */
 
-class game {
+class Game {
     //Define the properties here
-    constructor(missed, phrases, activephrase) {
+    constructor() {
         this.missed = 0;
-        this.phrases = ['Well Hello!', 'Get over here', 'Just in time', 'Im going to win this', 'This is the best game ever'];
-        this.activephrase = null;
+        this.phrases = this.createPhrases();
+        this.activePhrase = null;
     }
     /**
-     * Start the game
-     * remove the overlay
-     * Add the active phrase to the screen
-     * @param {} phrase 
-     */
-    startGame(phrase) {
+     * Creates phrases for use in game
+     * @return {array} An array of phrases that could be used in the game
+    */
+    createPhrases() {
+        const phrases = [
+            new Phrase('You talking to me'),
+            new Phrase('Wheres Johnny'),
+            new Phrase('Say hello to my little friend'),
+            new Phrase('Protect The People At A Minutes Notice'),
+            new Phrase('Its The End Of The World All Over Again'),
+        ];
+        return phrases;
+    }
+    /**
+    * Selects random phrase from phrases property
+    * @return {Object} Phrase object chosen to be used
+    */
+    getRandomPhrase() {
+        return this.phrases[Math.floor(Math.random() * this.phrases.length)];
+    };
+    /**
+    * Begins game by selecting a random phrase and displaying it to user
+    */
+    startGame() {
         const overlay = document.getElementById('overlay');
         overlay.style.display = 'none';
-        this.activephrase = phrase;
-        addPhraseToDisplay(phrase);
-    }
-    /**
-     * Get a random phrase the phrases property
-     * Return the Random Phrase
-     */
-    getRandomPhrase() {
-        const randomPhrase = Math.floor(Math.random() * this.phrases.length)
-        this.phrases.forEach(index => {
-            if (randomPhrase === index) {
-                return index
-            }
-        });
-
-    }
-
-    /**
-     * 
-     * @param {string} letter represents the letters of phrase
-     */
-    handleInteraction(letter) {
-        const key = document.getElementsByClassName('key');
-        //loop over the keys and check each one
-        key.forEach(key => {
-            if (this.key) {
-                this.key.disabled;
-            }
-            //if selected key does not match remove a life adn add the class "wrong" 
-            if (this.key.innerHTML !== letter) {
-                this.key.classname = 'wrong';
-                this.removeLife(miss);
-            } else {
-                //if key does match add class of "chosen" show the matched letter and check for a win
-                this.key.classname = 'chosen';
-                this.showMatchedLetter();
-                return this.checkForWin();
-            }
-            //continue to check if the player has won or not
-            if (this.checkForWin() === true) {
-                return this.gameOver();
-            }
-        })
-    }
-    /**
-     * Remove a heart if user is incorrect on guessing
-     * @param {boolean} miss return true if user has missed, false if user is correct
-     */
-    removeLife(miss) {
-        const hearts = document.querySelectorAll('.tries');
-        hearts.forEach(heart => {
-            if (miss) {
-                heart.setAttribute('src', 'images/lostHeart.png');
-            }
-            this.missed++
-        })
-
-    }
-
-    //checks to see if the user has won or not by revealing all letters or has any remaining hearts
-    checkForWin() {
-        const phraseContainer = document.getElementById('phrase ul');
-        phraseContainer.children.forEach(letter => {
-            if (letter.classname === 'show') {
-                return true;
-            } else {
-                return false;
-            }
-        });
-    }
-    /**
-     * win the game is over it displays the overlay again
-     * if the player wins it displays a message and updates the overlay
-     * if player loses it updates the message to a new message and the overlay class
-     * @param {boolean} win  returns true if user wins, false is user loses
-     */
-    gameOver(win) {
-        const overlay = document.getElementById('overlay');
-        const gameMessage = document.getElementById('game-over-message');
-        overlay.style.display = 'block';
-        if (win) {
-            gameMessage.innerHTML = `You win!`;
-            overlay.classname = 'win';
-        } else {
-            gameMessage.innerHTML = `You lost...`;
-            overlay.classname = 'lose';
-        }
-    }
+        this.activephrase = this.getRandomPhrase();
+        this.addPhraseToDisplay()
+    };
 }

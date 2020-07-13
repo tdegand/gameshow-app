@@ -58,7 +58,5 @@ class Phrase {
                 item.innerHTML = `${letter}`;
             }
         })
-
-
     };
 }

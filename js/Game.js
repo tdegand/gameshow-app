@@ -36,7 +36,6 @@ class Game {
     startGame() {
         const overlay = document.getElementById('overlay');
         overlay.style.display = 'none';
-        this.activephrase = this.getRandomPhrase();
-        this.addPhraseToDisplay()
+        this.activephrase = this.getRandomPhrase().addPhraseToDisplay();
     };
 }

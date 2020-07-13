@@ -2,7 +2,10 @@
  * Project 4 - OOP Game App
  * app.js */
 
-//uses jquery to initilaize the game and manage game states 
-const game = new Game();
-game.startGame();
-console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
+
+const start = document.querySelector('.start');
+
+start.addEventListener('click', () => {
+    const game = new Game();
+    game.startGame();
+})

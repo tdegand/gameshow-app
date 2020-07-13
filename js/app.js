@@ -3,9 +3,9 @@
  * app.js */
 
 
-const start = document.querySelector('.start');
+const startButton = document.querySelector('#btn__reset');
 
-start.addEventListener('click', () => {
+startButton.addEventListener('click', () => {
     const game = new Game();
     game.startGame();
 })

@@ -28,6 +28,7 @@ body {
   flex-direction: column;
   display: flex;
   height: 100vh;
+  background-color: #9e9e9e;
 }
 
 li, ol, ul {
@@ -86,7 +87,8 @@ button {
 /* Title */
 
 .header {
-  color: #3a3f58;
+  color: #009688;
+  text-shadow: -1px 2px 3px rgba(255, 255, 255, .35);
 }
 
 
@@ -111,7 +113,7 @@ button {
 
 .show {
   color: #fff;
-  background-color: #4ac0d5;
+  background-color: #009a06;
   font-size: 20px;
   height: 65px;
   width: 65px;
@@ -131,14 +133,14 @@ button {
 }
 
 .chosen {
-  background: #3a3f58;
+  background: #673AB7;
   border-radius: 5px;
   font-size: var(--font-size-medium);
   color: #FFFFFF;
 }
 
 .wrong {
-  background: #f7a964;
+  background: #b00c00;
   color: #FFFFFF;
 }
 
@@ -180,7 +182,7 @@ button {
 }
 
 .start {
-  background-color: #3a3f58;
+  background-color: #009688;
 }
 
 .start a {

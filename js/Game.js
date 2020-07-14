@@ -13,9 +13,18 @@ class Game {
         const phrases = [
             new Phrase('You talking to me'),
             new Phrase('Wheres Johnny'),
-            new Phrase('Say hello to my little friend'),
-            new Phrase('Protect The People At A Minutes Notice'),
-            new Phrase('Its The End Of The World All Over Again'),
+            new Phrase('Hello My friend'),
+            new Phrase('This phrase is too long'),
+            new Phrase('Hello world'),
+            new Phrase('oh look a new phrase'),
+            new Phrase('what a nice surprise'),
+            new Phrase('a fools heart'),
+            new Phrase('shiver me timbers'),
+            new Phrase('gotta do some testing'),
+            new Phrase('Love and Peace'),
+            new Phrase('Rock on'),
+            new Phrase('fabulous movie'),
+            new Phrase('Welcome to Jurassic park'),
         ];
         return phrases;
     }

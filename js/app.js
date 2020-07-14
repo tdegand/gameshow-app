@@ -6,8 +6,6 @@
 const startButton = document.querySelector('#btn__reset');
 const game = new Game();
 
-
-
 startButton.addEventListener('click', () => {
     game.startGame();
 })
@@ -18,10 +16,20 @@ const keyButton = document.querySelectorAll('.key');
 const newListenerFunction = (event) => {
     game.handleInteraction(event.target);
 };
+
 for (let i = 0; i < keyButton.length; i++) {
     keyButton[i].addEventListener('click', newListenerFunction);
-    keyButton[i].addEventListener('keydown', newListenerFunction);
 }
+//add key events and lets user select a letter using the corresponding key
+document.addEventListener('keydown', (event) => {
+    const buttons = document.querySelectorAll('#qwerty button');
+    buttons.forEach(button => {
+        if (button.textContent === event.key) {
+            game.handleInteraction(button);
+        }
+    })
+});
+
 
 
 

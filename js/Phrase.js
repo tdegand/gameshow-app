@@ -51,10 +51,12 @@ class Phrase {
     * @param (string) letter - Letter to display
     */
     showMatchedLetter(letter) {
-        const displayedLetters = document.querySelector('.letter')
+        const displayedLetters = document.querySelectorAll('.letter')
+
         displayedLetters.forEach(item => {
             if (item.classList.contains('letter') && item.innerHTML === letter) {
-                item.className = 'show';
+                item.classList.add('show');
+                item.classList.remove('hide');
                 item.innerHTML = `${letter}`;
             }
         })

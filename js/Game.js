@@ -105,6 +105,31 @@ class Game {
     * @param (HTMLButtonElement) button - The clicked button element
     */
     handleInteraction(button) {
-        console.log(button);
+        button.disabled = true;
+
+        if (this.activePhrase.checkLetter(button.innerHTML) === false) {
+            button.classList.add('wrong');
+            this.removeLife();
+        } else {
+            button.classList.add('chosen');
+            this.activePhrase.showMatchedLetter(button.innerHTML);
+            this.checkForWin();
+            if (this.checkForWin() === true) {
+                this.gameOver();
+            }
+        }
     };
+
+    resetGame() {
+        const letters = document.querySelectorAll('.letter');
+        letters.className = 'letter hide';
+        const keyButton = document.querySelectorAll('.key button');
+
+
+        for (let i = 0; i < keyButton.length; i++) {
+            keyButton[i].disabled = false;
+            keyButton[i].classList.remove('wrong');
+            keyButton[i].classList.remove('chosen');
+        }
+    }
 }

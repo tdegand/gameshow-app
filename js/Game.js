@@ -43,13 +43,12 @@ class Game {
     checkForWin() {
         const letters = document.querySelectorAll('.letter');
         letters.forEach(item => {
-            if (this.item.classList.contains('show')) {
+            if (item.className === 'show') {
                 return true;
             } else {
                 return false;
             }
         })
-
     };
     /**
     * Increases the value of the missed property
@@ -58,7 +57,12 @@ class Game {
     */
     removeLife() {
         const removeHeart = document.querySelectorAll('img')
-
+        for (let i = 0; i < removeHeart.length; i++) {
+            if (Phrase.checkLetter(this.letters) === false) {
+                removeHeart[i].src = 'images/lostHeart.png';
+                this.missed++
+            }
+        }
         if (this.missed >= 5) {
             return this.gameOver();
         }

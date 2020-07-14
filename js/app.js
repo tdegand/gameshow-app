@@ -10,3 +10,14 @@ startButton.addEventListener('click', () => {
     game.startGame();
 })
 
+//handles the interaction with the querty keyboard displayed on screen
+const keyButton = document.querySelectorAll('.key');
+
+const newListenerFunction = (event) => {
+    game.handleInteraction(event.target);
+};
+for (let i = 0; i < keyButton.length; i++) {
+    keyButton[i].addEventListener('click', newListenerFunction);
+    keyButton[i].addEventListener('keydown', newListenerFunction);
+}
+

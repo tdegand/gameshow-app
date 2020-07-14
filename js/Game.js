@@ -100,4 +100,11 @@ class Game {
             button.innerHTML = 'Start New Game';
         }
     };
+    /**
+    * Handles onscreen keyboard button clicks
+    * @param (HTMLButtonElement) button - The clicked button element
+    */
+    handleInteraction(button) {
+        console.log(button);
+    };
 }

@@ -7,6 +7,7 @@ const startButton = document.querySelector('#btn__reset');
 const game = new Game();
 
 startButton.addEventListener('click', () => {
+    game
     game.startGame();
 })
 
@@ -24,7 +25,7 @@ for (let i = 0; i < keyButton.length; i++) {
 document.addEventListener('keydown', (event) => {
     const buttons = document.querySelectorAll('#qwerty button');
     buttons.forEach(button => {
-        if (button.textContent === event.key) {
+        if (button.textContent === event.key && button.disabled === false) {
             game.handleInteraction(button);
         }
     })

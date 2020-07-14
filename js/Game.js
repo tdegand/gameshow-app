@@ -58,11 +58,25 @@ class Game {
     */
     removeLife() {
         const removeHeart = document.querySelectorAll('img')
-        if (removeHeart.src === 'images/liveHeart.png') {
-            removeHeart.src = 'images/lostHeart.png';
+
+        if (this.missed === 0) {
+            removeHeart[0].src = 'images/lostHeart.png';
+            this.missed++
+        } else if (this.missed === 1) {
+            removeHeart[1].src = 'images/lostHeart.png';
+            this.missed++
+        } else if (this.missed === 2) {
+            removeHeart[2].src = 'images/lostHeart.png';
+            this.missed++
+        } else if (this.missed === 3) {
+            removeHeart[3].src = 'images/lostHeart.png';
+            this.missed++
+        } else if (this.missed === 4) {
+            removeHeart[4].src = 'images/lostHeart.png';
             this.missed++
         }
-        if (this.missed >= 5) {
+
+        if (this.missed === 5) {
             return this.gameOver();
         }
     };
@@ -71,16 +85,19 @@ class Game {
     * @param {boolean} gameWon - Whether or not the user won the game
     */
     gameOver(gameWon) {
-        const overlay = document.querySelector('overlay');
-        const message = document.querySelector('game-over-message');
+        const overlay = document.querySelector('#overlay');
+        const message = document.querySelector('#game-over-message');
+        const button = document.querySelector('#btn__reset');
         overlay.style.display = '';
 
-        if (gameWon === true) {
-            overlay.className = 'won'
+        if (this.checkForWin(true)) {
+            overlay.className = 'win'
             message.innerHTML = 'You Won!'
+            button.innerHTML = 'Start New Game';
         } else {
             overlay.className = 'lose'
             message.innerHTML = 'You lost!'
+            button.innerHTML = 'Start New Game';
         }
 
     };

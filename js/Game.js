@@ -81,10 +81,10 @@ class Game {
         }
     };
     /**
-    * Displays game over message
-    * @param {boolean} gameWon - Whether or not the user won the game
+    * Displays game over message if user lost
+    * Displays you won message if user wins!
     */
-    gameOver(gameWon) {
+    gameOver() {
         const overlay = document.querySelector('#overlay');
         const message = document.querySelector('#game-over-message');
         const button = document.querySelector('#btn__reset');
@@ -99,6 +99,5 @@ class Game {
             message.innerHTML = 'You lost!'
             button.innerHTML = 'Start New Game';
         }
-
     };
 }

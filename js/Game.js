@@ -30,6 +30,7 @@ class Game {
     * Begins game by selecting a random phrase and displaying it to user
     */
     startGame() {
+        this.resetGame();
         const overlay = document.getElementById('overlay');
         overlay.style.display = 'none';
         this.activePhrase = this.getRandomPhrase()
@@ -121,15 +122,24 @@ class Game {
     };
 
     resetGame() {
-        const letters = document.querySelectorAll('.letter');
-        letters.className = 'letter hide';
-        const keyButton = document.querySelectorAll('.key button');
+        const phraseList = document.querySelector('#phrase ul');
+        phraseList.innerHTML = '';
 
-
+        const keyButton = document.querySelectorAll('.keyrow button');
         for (let i = 0; i < keyButton.length; i++) {
             keyButton[i].disabled = false;
             keyButton[i].classList.remove('wrong');
             keyButton[i].classList.remove('chosen');
         }
-    }
+
+        const scoreboard = document.querySelectorAll('.tries img')
+        this.missed = 0;
+        for (let i = 0; i < scoreboard.length; i++) {
+            scoreboard[0].src = 'images/liveHeart.png';
+            scoreboard[1].src = 'images/liveHeart.png';
+            scoreboard[2].src = 'images/liveHeart.png';
+            scoreboard[3].src = 'images/liveHeart.png';
+            scoreboard[4].src = 'images/liveHeart.png';
+        }
+    };
 }

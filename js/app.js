@@ -9,7 +9,7 @@ const game = new Game();
 
 
 startButton.addEventListener('click', () => {
-    game.resetGame();
+    game.startGame();
 })
 
 //handles the interaction with the querty keyboard displayed on screen

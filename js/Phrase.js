@@ -24,7 +24,7 @@ class Phrase {
         letters.forEach(letter => {
             if (regex.test(letter)) {
                 const newListItem = document.createElement('li');
-                newListItem.className = 'letter'
+                newListItem.className = 'letter hide'
                 newListItem.innerHTML = `${letter}`;
                 phraseContainer.appendChild(newListItem);
             } else {

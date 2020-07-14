@@ -42,13 +42,14 @@ class Game {
     */
     checkForWin() {
         const letters = document.querySelectorAll('.letter');
-        letters.forEach(item => {
-            if (item.className === 'show') {
+        const hidden = document.querySelectorAll('.hide').length;
+        for (let i = 0; i < letters.length; i++) {
+            if (hidden === 0) {
                 return true;
             } else {
                 return false;
             }
-        })
+        }
     };
     /**
     * Increases the value of the missed property
@@ -57,11 +58,9 @@ class Game {
     */
     removeLife() {
         const removeHeart = document.querySelectorAll('img')
-        for (let i = 0; i < removeHeart.length; i++) {
-            if (Phrase.checkLetter(this.letters) === false) {
-                removeHeart[i].src = 'images/lostHeart.png';
-                this.missed++
-            }
+        if (removeHeart.src === 'images/liveHeart.png') {
+            removeHeart.src = 'images/lostHeart.png';
+            this.missed++
         }
         if (this.missed >= 5) {
             return this.gameOver();
@@ -74,7 +73,7 @@ class Game {
     gameOver(gameWon) {
         const overlay = document.querySelector('overlay');
         const message = document.querySelector('game-over-message');
-        overlay.style.display = 'block'
+        overlay.style.display = '';
 
         if (gameWon === true) {
             overlay.className = 'won'

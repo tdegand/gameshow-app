@@ -12,7 +12,7 @@ class Game {
     createPhrases() {
         const phrases = [
             new Phrase('You talking to me'),
-            new Phrase('Wheres Johnny'),
+            new Phrase('Heres Johnny'),
             new Phrase('Hello My friend'),
             new Phrase('This phrase is too long'),
             new Phrase('Hello world'),

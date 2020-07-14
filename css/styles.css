@@ -93,7 +93,7 @@ button:focus{
 /* Title */
 
 .header {
-  color: #009688;
+  color: #036f65;
   text-shadow: -1px 2px 3px rgba(255, 255, 255, .35);
 }
 
@@ -140,7 +140,7 @@ button:focus{
 }
 
 .chosen {
-  background: #673AB7;
+  background: #009a06;
   border-radius: 5px;
   font-size: var(--font-size-medium);
   color: #FFFFFF;

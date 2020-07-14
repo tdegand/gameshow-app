@@ -120,7 +120,12 @@ class Game {
             }
         }
     };
-
+    /**
+     * This will reset the HTMl elements back to default
+     * letter list is emptied
+     * key buttons are set back to default
+     * Hearts are set back to default
+     */
     resetGame() {
         const phraseList = document.querySelector('#phrase ul');
         phraseList.innerHTML = '';

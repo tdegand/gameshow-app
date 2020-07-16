@@ -168,11 +168,7 @@ class Game {
         const scoreboard = document.querySelectorAll('.tries img')
         this.missed = 0;
         for (let i = 0; i < scoreboard.length; i++) {
-            scoreboard[0].src = 'images/liveHeart.png';
-            scoreboard[1].src = 'images/liveHeart.png';
-            scoreboard[2].src = 'images/liveHeart.png';
-            scoreboard[3].src = 'images/liveHeart.png';
-            scoreboard[4].src = 'images/liveHeart.png';
+            scoreboard[i].src = 'images/liveHeart.png';
         }
     };
 }
